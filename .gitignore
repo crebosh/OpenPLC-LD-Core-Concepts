@@ -1,0 +1,21 @@
+# OpenPLC build files
+build/
+temp/
+*.bak
+*.tmp
+
+# Compiled binaries
+*.o
+*.so
+*.exe
+*.out
+
+# IDE/editor files
+.project
+.workspace
+.vscode/
+.idea/
+
+# OS-generated
+.DS_Store
+Thumbs.db
