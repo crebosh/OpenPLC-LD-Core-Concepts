@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6.xsd">
-  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-11-04T17:11:47"/>
-  <contentHeader name="Unnamed" modificationDateTime="2025-11-04T17:19:13">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2025-11-05T10:04:27"/>
+  <contentHeader name="Unnamed" modificationDateTime="2025-11-05T10:11:24">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -20,7 +20,7 @@
       <pou name="main" pouType="program">
         <interface>
           <localVars>
-            <variable name="Set">
+            <variable name="I_PushButton">
               <type>
                 <BOOL/>
               </type>
@@ -28,7 +28,7 @@
                 <simpleValue value="False"/>
               </initialValue>
             </variable>
-            <variable name="Reset">
+            <variable name="PB_Down">
               <type>
                 <BOOL/>
               </type>
@@ -36,7 +36,7 @@
                 <simpleValue value="False"/>
               </initialValue>
             </variable>
-            <variable name="memory">
+            <variable name="PB_Up">
               <type>
                 <BOOL/>
               </type>
@@ -48,101 +48,87 @@
         </interface>
         <body>
           <LD>
-            <leftPowerRail localId="1" width="10" height="110">
-              <position x="130" y="130"/>
+            <leftPowerRail localId="1" width="10" height="140">
+              <position x="140" y="80"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
               <connectionPointOut formalParameter="">
-                <relPosition x="10" y="90"/>
+                <relPosition x="10" y="120"/>
               </connectionPointOut>
             </leftPowerRail>
             <contact localId="2" negated="false" width="21" height="20">
-              <position x="308" y="140"/>
+              <position x="318" y="90"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="1">
-                  <position x="308" y="150"/>
-                  <position x="140" y="150"/>
+                  <position x="318" y="100"/>
+                  <position x="150" y="100"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Set</variable>
+              <variable>I_PushButton</variable>
             </contact>
-            <contact localId="3" negated="true" width="21" height="20">
-              <position x="438" y="140"/>
+            <coil localId="3" negated="false" width="21" height="20">
+              <position x="598" y="90"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="2">
-                  <position x="438" y="150"/>
-                  <position x="329" y="150"/>
+                  <position x="598" y="100"/>
+                  <position x="339" y="100"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Reset</variable>
-            </contact>
-            <coil localId="4" negated="false" storage="set" width="21" height="20">
-              <position x="658" y="140"/>
-              <connectionPointIn>
-                <relPosition x="0" y="10"/>
-                <connection refLocalId="3">
-                  <position x="658" y="150"/>
-                  <position x="459" y="150"/>
-                </connection>
-              </connectionPointIn>
-              <connectionPointOut>
-                <relPosition x="21" y="10"/>
-              </connectionPointOut>
-              <variable>memory</variable>
+              <variable>PB_Down</variable>
             </coil>
-            <rightPowerRail localId="5" width="10" height="110">
-              <position x="778" y="130"/>
+            <rightPowerRail localId="4" width="10" height="140">
+              <position x="748" y="80"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
-                <connection refLocalId="4">
-                  <position x="778" y="150"/>
-                  <position x="678" y="150"/>
+                <connection refLocalId="3">
+                  <position x="748" y="100"/>
+                  <position x="618" y="100"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
-                <relPosition x="0" y="90"/>
-                <connection refLocalId="7">
-                  <position x="778" y="220"/>
-                  <position x="690" y="220"/>
+                <relPosition x="0" y="120"/>
+                <connection refLocalId="6">
+                  <position x="748" y="200"/>
+                  <position x="628" y="200"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
-            <contact localId="6" negated="false" width="21" height="20">
-              <position x="310" y="210"/>
+            <contact localId="5" negated="true" width="21" height="20">
+              <position x="320" y="190"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="1">
-                  <position x="310" y="220"/>
-                  <position x="140" y="220"/>
+                  <position x="320" y="200"/>
+                  <position x="150" y="200"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Reset</variable>
+              <variable>I_PushButton</variable>
             </contact>
-            <coil localId="7" negated="false" storage="reset" width="21" height="20">
-              <position x="670" y="210"/>
+            <coil localId="6" negated="false" width="21" height="20">
+              <position x="608" y="190"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="6">
-                  <position x="670" y="220"/>
-                  <position x="331" y="220"/>
+                <connection refLocalId="5">
+                  <position x="608" y="200"/>
+                  <position x="341" y="200"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>memory</variable>
+              <variable>PB_Up</variable>
             </coil>
           </LD>
         </body>
